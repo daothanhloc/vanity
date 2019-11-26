@@ -12,15 +12,6 @@
   },
   "validations": [],
   "relations": {
-    "payEffectScripts": {
-      "type": "hasMany",
-      "model": "PayEffectScript",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true,
-        "disableInclude": true
-      }
-    },
     "messages": {
       "type": "hasMany",
       "model": "Message",
@@ -43,10 +34,6 @@
       "type": "hasMany",
       "model": "EffectScript",
       "foreignKey": "",
-      "options": {
-        "nestRemoting": true,
-        "disableInclude": true
-      },
       "through": "PayEffectScript"
     }
   },

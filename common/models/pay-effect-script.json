@@ -11,20 +11,12 @@
     "account": {
       "type": "belongsTo",
       "model": "Account",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true,
-        "disableInclude": true
-      }
+      "foreignKey": ""
     },
     "effectScript": {
       "type": "belongsTo",
       "model": "EffectScript",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true,
-        "disableInclude": true
-      }
+      "foreignKey": ""
     }
   },
   "acls": [],
