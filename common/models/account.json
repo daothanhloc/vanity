@@ -1,0 +1,62 @@
+{
+  "name": "Account",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "accountName": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "payEffectScripts": {
+      "type": "hasMany",
+      "model": "PayEffectScript",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    },
+    "messages": {
+      "type": "hasMany",
+      "model": "Message",
+      "foreignKey": "fromUserId",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    },
+    "histories": {
+      "type": "hasMany",
+      "model": "History",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    },
+    "effectScripts": {
+      "type": "hasMany",
+      "model": "EffectScript",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      },
+      "through": "PayEffectScript"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

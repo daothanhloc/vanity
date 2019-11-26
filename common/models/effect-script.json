@@ -1,0 +1,70 @@
+{
+  "name": "EffectScript",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "audio": {
+      "type": "string",
+      "required": true
+    },
+    "scriptUrl": {
+      "type": "string",
+      "required": true
+    },
+    "effectUrl": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "payEffectScripts": {
+      "type": "hasMany",
+      "model": "PayEffectScript",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    },
+    "histories": {
+      "type": "hasMany",
+      "model": "History",
+      "foreignKey": "scriptId",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    },
+    "accounts": {
+      "type": "hasMany",
+      "model": "Account",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      },
+      "through": "PayEffectScript"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

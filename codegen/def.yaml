@@ -1,0 +1,6565 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Vanity
+  description: Vanity
+basePath: /api
+paths:
+  '/Users/{id}/accessTokens/{fk}':
+    get:
+      tags:
+        - User
+      summary: Find a related item by id for accessTokens.
+      operationId: User.prototype.__findById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - User
+      summary: Delete a related item by id for accessTokens.
+      operationId: User.prototype.__destroyById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - User
+      summary: Update a related item by id for accessTokens.
+      operationId: User.prototype.__updateById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+  '/Users/{id}/accessTokens':
+    get:
+      tags:
+        - User
+      summary: Queries accessTokens of User.
+      operationId: User.prototype.__get__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AccessToken'
+      deprecated: false
+    post:
+      tags:
+        - User
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: User.prototype.__create__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - User
+      summary: Deletes all accessTokens of this model.
+      operationId: User.prototype.__delete__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Users/{id}/accessTokens/count':
+    get:
+      tags:
+        - User
+      summary: Counts accessTokens of User.
+      operationId: User.prototype.__count__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Users:
+    post:
+      tags:
+        - User
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: User.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+    patch:
+      tags:
+        - User
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
+      operationId: User.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+    put:
+      tags:
+        - User
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: User.replaceOrCreate__put_Users
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+    get:
+      tags:
+        - User
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: User.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+      deprecated: false
+  /Users/replaceOrCreate:
+    post:
+      tags:
+        - User
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: User.replaceOrCreate__post_Users_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+  /Users/upsertWithWhere:
+    post:
+      tags:
+        - User
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: User.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+  '/Users/{id}/exists':
+    get:
+      tags:
+        - User
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'User.exists__get_Users_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Users/{id}':
+    head:
+      tags:
+        - User
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'User.exists__head_Users_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - User
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: User.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+    put:
+      tags:
+        - User
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'User.replaceById__put_Users_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+    delete:
+      tags:
+        - User
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: User.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - User
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: User.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+  '/Users/{id}/replace':
+    post:
+      tags:
+        - User
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'User.replaceById__post_Users_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+  /Users/findOne:
+    get:
+      tags:
+        - User
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: User.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/User'
+      deprecated: false
+  /Users/update:
+    post:
+      tags:
+        - User
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: User.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /Users/count:
+    get:
+      tags:
+        - User
+      summary: Count instances of the model matched by where from the data source.
+      operationId: User.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Users/change-stream:
+    post:
+      tags:
+        - User
+      summary: Create a change stream.
+      operationId: User.createChangeStream__post_Users_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - User
+      summary: Create a change stream.
+      operationId: User.createChangeStream__get_Users_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+  /Users/login:
+    post:
+      tags:
+        - User
+      summary: Login a user with username/email and password.
+      operationId: User.login
+      parameters:
+        - name: credentials
+          in: body
+          required: true
+          schema:
+            type: object
+        - name: include
+          in: query
+          description: >-
+            Related objects to include in the response. See the description of
+            return value for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: >+
+              The response body contains properties of the AccessToken created
+              on login.
+
+              Depending on the value of `include` parameter, the body may
+              contain additional properties:
+
+                - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)
+
+            type: object
+      deprecated: false
+  /Users/logout:
+    post:
+      tags:
+        - User
+      summary: Logout a user with access token.
+      operationId: User.logout
+      parameters: []
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Users/{id}/verify':
+    post:
+      tags:
+        - User
+      summary: Trigger user's identity verification with configured verifyOptions
+      operationId: User.prototype.verify
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Users/confirm:
+    get:
+      tags:
+        - User
+      summary: Confirm a user registration with identity verification token.
+      operationId: User.confirm
+      parameters:
+        - name: uid
+          in: query
+          required: true
+          type: string
+        - name: token
+          in: query
+          required: true
+          type: string
+        - name: redirect
+          in: query
+          required: false
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Users/reset:
+    post:
+      tags:
+        - User
+      summary: Reset password for a user with email.
+      operationId: User.resetPassword
+      parameters:
+        - name: options
+          in: body
+          required: true
+          schema:
+            type: object
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Users/change-password:
+    post:
+      tags:
+        - User
+      summary: Change a user's password.
+      operationId: User.changePassword
+      parameters:
+        - name: oldPassword
+          in: formData
+          required: true
+          type: string
+        - name: newPassword
+          in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Users/reset-password:
+    post:
+      tags:
+        - User
+      summary: Reset user's password via a password-reset token.
+      operationId: User.setPassword
+      parameters:
+        - name: newPassword
+          in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Accounts/{id}/accessTokens/{fk}':
+    get:
+      tags:
+        - Account
+      summary: Find a related item by id for accessTokens.
+      operationId: Account.prototype.__findById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Delete a related item by id for accessTokens.
+      operationId: Account.prototype.__destroyById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Account
+      summary: Update a related item by id for accessTokens.
+      operationId: Account.prototype.__updateById__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+  '/Accounts/{id}/payEffectScripts/{fk}':
+    get:
+      tags:
+        - Account
+      summary: Find a related item by id for payEffectScripts.
+      operationId: Account.prototype.__findById__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Delete a related item by id for payEffectScripts.
+      operationId: Account.prototype.__destroyById__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Account
+      summary: Update a related item by id for payEffectScripts.
+      operationId: Account.prototype.__updateById__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/Accounts/{id}/histories/{fk}':
+    get:
+      tags:
+        - Account
+      summary: Find a related item by id for histories.
+      operationId: Account.prototype.__findById__histories
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Delete a related item by id for histories.
+      operationId: Account.prototype.__destroyById__histories
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Account
+      summary: Update a related item by id for histories.
+      operationId: Account.prototype.__updateById__histories
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  '/Accounts/{id}/messages/{fk}':
+    get:
+      tags:
+        - Account
+      summary: Find a related item by id for messages.
+      operationId: Account.prototype.__findById__messages
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Delete a related item by id for messages.
+      operationId: Account.prototype.__destroyById__messages
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Account
+      summary: Update a related item by id for messages.
+      operationId: Account.prototype.__updateById__messages
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/Accounts/{id}/accessTokens':
+    get:
+      tags:
+        - Account
+      summary: Queries accessTokens of Account.
+      operationId: Account.prototype.__get__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AccessToken'
+      deprecated: false
+    post:
+      tags:
+        - Account
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: Account.prototype.__create__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Deletes all accessTokens of this model.
+      operationId: Account.prototype.__delete__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Accounts/{id}/accessTokens/count':
+    get:
+      tags:
+        - Account
+      summary: Counts accessTokens of Account.
+      operationId: Account.prototype.__count__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Accounts/{id}/payEffectScripts':
+    get:
+      tags:
+        - Account
+      summary: Queries payEffectScripts of Account.
+      operationId: Account.prototype.__get__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    post:
+      tags:
+        - Account
+      summary: Creates a new instance in payEffectScripts of this model.
+      operationId: Account.prototype.__create__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Deletes all payEffectScripts of this model.
+      operationId: Account.prototype.__delete__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Accounts/{id}/payEffectScripts/count':
+    get:
+      tags:
+        - Account
+      summary: Counts payEffectScripts of Account.
+      operationId: Account.prototype.__count__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Accounts/{id}/histories':
+    get:
+      tags:
+        - Account
+      summary: Queries histories of Account.
+      operationId: Account.prototype.__get__histories
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/History'
+      deprecated: false
+    post:
+      tags:
+        - Account
+      summary: Creates a new instance in histories of this model.
+      operationId: Account.prototype.__create__histories
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Deletes all histories of this model.
+      operationId: Account.prototype.__delete__histories
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Accounts/{id}/histories/count':
+    get:
+      tags:
+        - Account
+      summary: Counts histories of Account.
+      operationId: Account.prototype.__count__histories
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Accounts/{id}/messages':
+    get:
+      tags:
+        - Account
+      summary: Queries messages of Account.
+      operationId: Account.prototype.__get__messages
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+      deprecated: false
+    post:
+      tags:
+        - Account
+      summary: Creates a new instance in messages of this model.
+      operationId: Account.prototype.__create__messages
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Deletes all messages of this model.
+      operationId: Account.prototype.__delete__messages
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Accounts/{id}/messages/count':
+    get:
+      tags:
+        - Account
+      summary: Counts messages of Account.
+      operationId: Account.prototype.__count__messages
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Accounts:
+    post:
+      tags:
+        - Account
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Account.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+    patch:
+      tags:
+        - Account
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
+      operationId: Account.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+    put:
+      tags:
+        - Account
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Account.replaceOrCreate__put_Accounts
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+    get:
+      tags:
+        - Account
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Account.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Account'
+      deprecated: false
+  /Accounts/replaceOrCreate:
+    post:
+      tags:
+        - Account
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Account.replaceOrCreate__post_Accounts_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  /Accounts/upsertWithWhere:
+    post:
+      tags:
+        - Account
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: Account.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/Accounts/{id}/exists':
+    get:
+      tags:
+        - Account
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Account.exists__get_Accounts_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Accounts/{id}':
+    head:
+      tags:
+        - Account
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Account.exists__head_Accounts_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Account
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Account.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+    put:
+      tags:
+        - Account
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'Account.replaceById__put_Accounts_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: Account.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - Account
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: Account.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/Accounts/{id}/replace':
+    post:
+      tags:
+        - Account
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'Account.replaceById__post_Accounts_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  /Accounts/findOne:
+    get:
+      tags:
+        - Account
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Account.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  /Accounts/update:
+    post:
+      tags:
+        - Account
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: Account.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /Accounts/count:
+    get:
+      tags:
+        - Account
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Account.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Accounts/change-stream:
+    post:
+      tags:
+        - Account
+      summary: Create a change stream.
+      operationId: Account.createChangeStream__post_Accounts_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - Account
+      summary: Create a change stream.
+      operationId: Account.createChangeStream__get_Accounts_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+  /Accounts/login:
+    post:
+      tags:
+        - Account
+      summary: Login a user with username/email and password.
+      operationId: Account.login
+      parameters:
+        - name: credentials
+          in: body
+          required: true
+          schema:
+            type: object
+        - name: include
+          in: query
+          description: >-
+            Related objects to include in the response. See the description of
+            return value for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: >+
+              The response body contains properties of the AccessToken created
+              on login.
+
+              Depending on the value of `include` parameter, the body may
+              contain additional properties:
+
+                - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)
+
+            type: object
+      deprecated: false
+  /Accounts/logout:
+    post:
+      tags:
+        - Account
+      summary: Logout a user with access token.
+      operationId: Account.logout
+      parameters: []
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Accounts/{id}/verify':
+    post:
+      tags:
+        - Account
+      summary: Trigger user's identity verification with configured verifyOptions
+      operationId: Account.prototype.verify
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Accounts/confirm:
+    get:
+      tags:
+        - Account
+      summary: Confirm a user registration with identity verification token.
+      operationId: Account.confirm
+      parameters:
+        - name: uid
+          in: query
+          required: true
+          type: string
+        - name: token
+          in: query
+          required: true
+          type: string
+        - name: redirect
+          in: query
+          required: false
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Accounts/reset:
+    post:
+      tags:
+        - Account
+      summary: Reset password for a user with email.
+      operationId: Account.resetPassword
+      parameters:
+        - name: options
+          in: body
+          required: true
+          schema:
+            type: object
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Accounts/change-password:
+    post:
+      tags:
+        - Account
+      summary: Change a user's password.
+      operationId: Account.changePassword
+      parameters:
+        - name: oldPassword
+          in: formData
+          required: true
+          type: string
+        - name: newPassword
+          in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Accounts/reset-password:
+    post:
+      tags:
+        - Account
+      summary: Reset user's password via a password-reset token.
+      operationId: Account.setPassword
+      parameters:
+        - name: newPassword
+          in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Accounts/{id}/payEffectScripts/{nk}/account':
+    get:
+      tags:
+        - Account
+      summary: Fetches belongsTo relation account.
+      operationId: Account.prototype.__get__payEffectScripts__account
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for payEffectScripts.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/Accounts/{id}/payEffectScripts/{nk}/effectScript':
+    get:
+      tags:
+        - Account
+      summary: Fetches belongsTo relation effectScript.
+      operationId: Account.prototype.__get__payEffectScripts__effectScript
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for payEffectScripts.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/Accounts/{id}/histories/{nk}/account':
+    get:
+      tags:
+        - Account
+      summary: Fetches belongsTo relation account.
+      operationId: Account.prototype.__get__histories__account
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for histories.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/Accounts/{id}/histories/{nk}/effectScript':
+    get:
+      tags:
+        - Account
+      summary: Fetches belongsTo relation effectScript.
+      operationId: Account.prototype.__get__histories__effectScript
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for histories.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/Accounts/{id}/messages/{nk}/account':
+    get:
+      tags:
+        - Account
+      summary: Fetches belongsTo relation account.
+      operationId: Account.prototype.__get__messages__account
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for messages.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/EffectScripts/{id}/payEffectScripts/{fk}':
+    get:
+      tags:
+        - EffectScript
+      summary: Find a related item by id for payEffectScripts.
+      operationId: EffectScript.prototype.__findById__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - EffectScript
+      summary: Delete a related item by id for payEffectScripts.
+      operationId: EffectScript.prototype.__destroyById__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - EffectScript
+      summary: Update a related item by id for payEffectScripts.
+      operationId: EffectScript.prototype.__updateById__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/EffectScripts/{id}/histories/{fk}':
+    get:
+      tags:
+        - EffectScript
+      summary: Find a related item by id for histories.
+      operationId: EffectScript.prototype.__findById__histories
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - EffectScript
+      summary: Delete a related item by id for histories.
+      operationId: EffectScript.prototype.__destroyById__histories
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - EffectScript
+      summary: Update a related item by id for histories.
+      operationId: EffectScript.prototype.__updateById__histories
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  '/EffectScripts/{id}/payEffectScripts':
+    get:
+      tags:
+        - EffectScript
+      summary: Queries payEffectScripts of EffectScript.
+      operationId: EffectScript.prototype.__get__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    post:
+      tags:
+        - EffectScript
+      summary: Creates a new instance in payEffectScripts of this model.
+      operationId: EffectScript.prototype.__create__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - EffectScript
+      summary: Deletes all payEffectScripts of this model.
+      operationId: EffectScript.prototype.__delete__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/EffectScripts/{id}/payEffectScripts/count':
+    get:
+      tags:
+        - EffectScript
+      summary: Counts payEffectScripts of EffectScript.
+      operationId: EffectScript.prototype.__count__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/EffectScripts/{id}/histories':
+    get:
+      tags:
+        - EffectScript
+      summary: Queries histories of EffectScript.
+      operationId: EffectScript.prototype.__get__histories
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/History'
+      deprecated: false
+    post:
+      tags:
+        - EffectScript
+      summary: Creates a new instance in histories of this model.
+      operationId: EffectScript.prototype.__create__histories
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - EffectScript
+      summary: Deletes all histories of this model.
+      operationId: EffectScript.prototype.__delete__histories
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/EffectScripts/{id}/histories/count':
+    get:
+      tags:
+        - EffectScript
+      summary: Counts histories of EffectScript.
+      operationId: EffectScript.prototype.__count__histories
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /EffectScripts:
+    post:
+      tags:
+        - EffectScript
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: EffectScript.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+    patch:
+      tags:
+        - EffectScript
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
+      operationId: EffectScript.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+    put:
+      tags:
+        - EffectScript
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: EffectScript.replaceOrCreate__put_EffectScripts
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+    get:
+      tags:
+        - EffectScript
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: EffectScript.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/EffectScript'
+      deprecated: false
+  /EffectScripts/replaceOrCreate:
+    post:
+      tags:
+        - EffectScript
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: EffectScript.replaceOrCreate__post_EffectScripts_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  /EffectScripts/upsertWithWhere:
+    post:
+      tags:
+        - EffectScript
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: EffectScript.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/EffectScripts/{id}/exists':
+    get:
+      tags:
+        - EffectScript
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'EffectScript.exists__get_EffectScripts_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/EffectScripts/{id}':
+    head:
+      tags:
+        - EffectScript
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'EffectScript.exists__head_EffectScripts_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - EffectScript
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: EffectScript.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+    put:
+      tags:
+        - EffectScript
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'EffectScript.replaceById__put_EffectScripts_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - EffectScript
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: EffectScript.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - EffectScript
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: EffectScript.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/EffectScripts/{id}/replace':
+    post:
+      tags:
+        - EffectScript
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'EffectScript.replaceById__post_EffectScripts_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  /EffectScripts/findOne:
+    get:
+      tags:
+        - EffectScript
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: EffectScript.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  /EffectScripts/update:
+    post:
+      tags:
+        - EffectScript
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: EffectScript.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /EffectScripts/count:
+    get:
+      tags:
+        - EffectScript
+      summary: Count instances of the model matched by where from the data source.
+      operationId: EffectScript.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /EffectScripts/change-stream:
+    post:
+      tags:
+        - EffectScript
+      summary: Create a change stream.
+      operationId: EffectScript.createChangeStream__post_EffectScripts_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - EffectScript
+      summary: Create a change stream.
+      operationId: EffectScript.createChangeStream__get_EffectScripts_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+  '/EffectScripts/{id}/payEffectScripts/{nk}/account':
+    get:
+      tags:
+        - EffectScript
+      summary: Fetches belongsTo relation account.
+      operationId: EffectScript.prototype.__get__payEffectScripts__account
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for payEffectScripts.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/EffectScripts/{id}/payEffectScripts/{nk}/effectScript':
+    get:
+      tags:
+        - EffectScript
+      summary: Fetches belongsTo relation effectScript.
+      operationId: EffectScript.prototype.__get__payEffectScripts__effectScript
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for payEffectScripts.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/EffectScripts/{id}/histories/{nk}/account':
+    get:
+      tags:
+        - EffectScript
+      summary: Fetches belongsTo relation account.
+      operationId: EffectScript.prototype.__get__histories__account
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for histories.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/EffectScripts/{id}/histories/{nk}/effectScript':
+    get:
+      tags:
+        - EffectScript
+      summary: Fetches belongsTo relation effectScript.
+      operationId: EffectScript.prototype.__get__histories__effectScript
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: nk
+          in: path
+          description: Foreign key for histories.
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/PayEffectScripts/{id}/account':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Fetches belongsTo relation account.
+      operationId: PayEffectScript.prototype.__get__account
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/PayEffectScripts/{id}/effectScript':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Fetches belongsTo relation effectScript.
+      operationId: PayEffectScript.prototype.__get__effectScript
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  /PayEffectScripts:
+    post:
+      tags:
+        - PayEffectScript
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: PayEffectScript.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    patch:
+      tags:
+        - PayEffectScript
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
+      operationId: PayEffectScript.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    put:
+      tags:
+        - PayEffectScript
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: PayEffectScript.replaceOrCreate__put_PayEffectScripts
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    get:
+      tags:
+        - PayEffectScript
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: PayEffectScript.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  /PayEffectScripts/replaceOrCreate:
+    post:
+      tags:
+        - PayEffectScript
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: PayEffectScript.replaceOrCreate__post_PayEffectScripts_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  /PayEffectScripts/upsertWithWhere:
+    post:
+      tags:
+        - PayEffectScript
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: PayEffectScript.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/PayEffectScripts/{id}/exists':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'PayEffectScript.exists__get_PayEffectScripts_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/PayEffectScripts/{id}':
+    head:
+      tags:
+        - PayEffectScript
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'PayEffectScript.exists__head_PayEffectScripts_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - PayEffectScript
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: PayEffectScript.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    put:
+      tags:
+        - PayEffectScript
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'PayEffectScript.replaceById__put_PayEffectScripts_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - PayEffectScript
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: PayEffectScript.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - PayEffectScript
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: PayEffectScript.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/PayEffectScripts/{id}/replace':
+    post:
+      tags:
+        - PayEffectScript
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'PayEffectScript.replaceById__post_PayEffectScripts_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  /PayEffectScripts/findOne:
+    get:
+      tags:
+        - PayEffectScript
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: PayEffectScript.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  /PayEffectScripts/update:
+    post:
+      tags:
+        - PayEffectScript
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: PayEffectScript.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /PayEffectScripts/count:
+    get:
+      tags:
+        - PayEffectScript
+      summary: Count instances of the model matched by where from the data source.
+      operationId: PayEffectScript.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /PayEffectScripts/change-stream:
+    post:
+      tags:
+        - PayEffectScript
+      summary: Create a change stream.
+      operationId: PayEffectScript.createChangeStream__post_PayEffectScripts_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - PayEffectScript
+      summary: Create a change stream.
+      operationId: PayEffectScript.createChangeStream__get_PayEffectScripts_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+  '/PayEffectScripts/{id}/account/accessTokens/{fk}':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Find a related item by id for accessTokens.
+      operationId: PayEffectScript.prototype.__findById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - PayEffectScript
+      summary: Delete a related item by id for accessTokens.
+      operationId: PayEffectScript.prototype.__destroyById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - PayEffectScript
+      summary: Update a related item by id for accessTokens.
+      operationId: PayEffectScript.prototype.__updateById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+  '/PayEffectScripts/{id}/account/payEffectScripts/{fk}':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Find a related item by id for payEffectScripts.
+      operationId: PayEffectScript.prototype.__findById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - PayEffectScript
+      summary: Delete a related item by id for payEffectScripts.
+      operationId: PayEffectScript.prototype.__destroyById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - PayEffectScript
+      summary: Update a related item by id for payEffectScripts.
+      operationId: PayEffectScript.prototype.__updateById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/PayEffectScripts/{id}/account/accessTokens':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Queries accessTokens of Account.
+      operationId: PayEffectScript.prototype.__get__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AccessToken'
+      deprecated: false
+    post:
+      tags:
+        - PayEffectScript
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: PayEffectScript.prototype.__create__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - PayEffectScript
+      summary: Deletes all accessTokens of this model.
+      operationId: PayEffectScript.prototype.__delete__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/PayEffectScripts/{id}/account/accessTokens/count':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Counts accessTokens of Account.
+      operationId: PayEffectScript.prototype.__count__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/PayEffectScripts/{id}/account/payEffectScripts':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Queries payEffectScripts of Account.
+      operationId: PayEffectScript.prototype.__get__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    post:
+      tags:
+        - PayEffectScript
+      summary: Creates a new instance in payEffectScripts of this model.
+      operationId: PayEffectScript.prototype.__create__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - PayEffectScript
+      summary: Deletes all payEffectScripts of this model.
+      operationId: PayEffectScript.prototype.__delete__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/PayEffectScripts/{id}/account/payEffectScripts/count':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Counts payEffectScripts of Account.
+      operationId: PayEffectScript.prototype.__count__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/PayEffectScripts/{id}/effectScript/payEffectScripts/{fk}':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Find a related item by id for payEffectScripts.
+      operationId: PayEffectScript.prototype.__findById__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - PayEffectScript
+      summary: Delete a related item by id for payEffectScripts.
+      operationId: PayEffectScript.prototype.__destroyById__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - PayEffectScript
+      summary: Update a related item by id for payEffectScripts.
+      operationId: PayEffectScript.prototype.__updateById__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/PayEffectScripts/{id}/effectScript/payEffectScripts':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Queries payEffectScripts of EffectScript.
+      operationId: PayEffectScript.prototype.__get__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    post:
+      tags:
+        - PayEffectScript
+      summary: Creates a new instance in payEffectScripts of this model.
+      operationId: PayEffectScript.prototype.__create__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - PayEffectScript
+      summary: Deletes all payEffectScripts of this model.
+      operationId: PayEffectScript.prototype.__delete__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/PayEffectScripts/{id}/effectScript/payEffectScripts/count':
+    get:
+      tags:
+        - PayEffectScript
+      summary: Counts payEffectScripts of EffectScript.
+      operationId: PayEffectScript.prototype.__count__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: PayEffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Histories/{id}/account':
+    get:
+      tags:
+        - History
+      summary: Fetches belongsTo relation account.
+      operationId: History.prototype.__get__account
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/Histories/{id}/effectScript':
+    get:
+      tags:
+        - History
+      summary: Fetches belongsTo relation effectScript.
+      operationId: History.prototype.__get__effectScript
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  /Histories:
+    post:
+      tags:
+        - History
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: History.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    patch:
+      tags:
+        - History
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
+      operationId: History.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    put:
+      tags:
+        - History
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: History.replaceOrCreate__put_Histories
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    get:
+      tags:
+        - History
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: History.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/History'
+      deprecated: false
+  /Histories/replaceOrCreate:
+    post:
+      tags:
+        - History
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: History.replaceOrCreate__post_Histories_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  /Histories/upsertWithWhere:
+    post:
+      tags:
+        - History
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: History.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  '/Histories/{id}/exists':
+    get:
+      tags:
+        - History
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'History.exists__get_Histories_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Histories/{id}':
+    head:
+      tags:
+        - History
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'History.exists__head_Histories_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - History
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: History.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    put:
+      tags:
+        - History
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'History.replaceById__put_Histories_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: History.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - History
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: History.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  '/Histories/{id}/replace':
+    post:
+      tags:
+        - History
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'History.replaceById__post_Histories_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  /Histories/findOne:
+    get:
+      tags:
+        - History
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: History.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  /Histories/update:
+    post:
+      tags:
+        - History
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: History.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /Histories/count:
+    get:
+      tags:
+        - History
+      summary: Count instances of the model matched by where from the data source.
+      operationId: History.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Histories/change-stream:
+    post:
+      tags:
+        - History
+      summary: Create a change stream.
+      operationId: History.createChangeStream__post_Histories_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - History
+      summary: Create a change stream.
+      operationId: History.createChangeStream__get_Histories_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+  '/Histories/{id}/account/accessTokens/{fk}':
+    get:
+      tags:
+        - History
+      summary: Find a related item by id for accessTokens.
+      operationId: History.prototype.__findById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Delete a related item by id for accessTokens.
+      operationId: History.prototype.__destroyById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - History
+      summary: Update a related item by id for accessTokens.
+      operationId: History.prototype.__updateById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+  '/Histories/{id}/account/payEffectScripts/{fk}':
+    get:
+      tags:
+        - History
+      summary: Find a related item by id for payEffectScripts.
+      operationId: History.prototype.__findById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Delete a related item by id for payEffectScripts.
+      operationId: History.prototype.__destroyById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - History
+      summary: Update a related item by id for payEffectScripts.
+      operationId: History.prototype.__updateById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/Histories/{id}/account/histories/{fk}':
+    get:
+      tags:
+        - History
+      summary: Find a related item by id for histories.
+      operationId: History.prototype.__findById__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Delete a related item by id for histories.
+      operationId: History.prototype.__destroyById__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - History
+      summary: Update a related item by id for histories.
+      operationId: History.prototype.__updateById__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  '/Histories/{id}/account/accessTokens':
+    get:
+      tags:
+        - History
+      summary: Queries accessTokens of Account.
+      operationId: History.prototype.__get__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AccessToken'
+      deprecated: false
+    post:
+      tags:
+        - History
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: History.prototype.__create__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Deletes all accessTokens of this model.
+      operationId: History.prototype.__delete__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Histories/{id}/account/accessTokens/count':
+    get:
+      tags:
+        - History
+      summary: Counts accessTokens of Account.
+      operationId: History.prototype.__count__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Histories/{id}/account/payEffectScripts':
+    get:
+      tags:
+        - History
+      summary: Queries payEffectScripts of Account.
+      operationId: History.prototype.__get__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    post:
+      tags:
+        - History
+      summary: Creates a new instance in payEffectScripts of this model.
+      operationId: History.prototype.__create__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Deletes all payEffectScripts of this model.
+      operationId: History.prototype.__delete__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Histories/{id}/account/payEffectScripts/count':
+    get:
+      tags:
+        - History
+      summary: Counts payEffectScripts of Account.
+      operationId: History.prototype.__count__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Histories/{id}/account/histories':
+    get:
+      tags:
+        - History
+      summary: Queries histories of Account.
+      operationId: History.prototype.__get__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/History'
+      deprecated: false
+    post:
+      tags:
+        - History
+      summary: Creates a new instance in histories of this model.
+      operationId: History.prototype.__create__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Deletes all histories of this model.
+      operationId: History.prototype.__delete__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Histories/{id}/account/histories/count':
+    get:
+      tags:
+        - History
+      summary: Counts histories of Account.
+      operationId: History.prototype.__count__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Histories/{id}/effectScript/payEffectScripts/{fk}':
+    get:
+      tags:
+        - History
+      summary: Find a related item by id for payEffectScripts.
+      operationId: History.prototype.__findById__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Delete a related item by id for payEffectScripts.
+      operationId: History.prototype.__destroyById__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - History
+      summary: Update a related item by id for payEffectScripts.
+      operationId: History.prototype.__updateById__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/Histories/{id}/effectScript/histories/{fk}':
+    get:
+      tags:
+        - History
+      summary: Find a related item by id for histories.
+      operationId: History.prototype.__findById__effectScript__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Delete a related item by id for histories.
+      operationId: History.prototype.__destroyById__effectScript__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - History
+      summary: Update a related item by id for histories.
+      operationId: History.prototype.__updateById__effectScript__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  '/Histories/{id}/effectScript/payEffectScripts':
+    get:
+      tags:
+        - History
+      summary: Queries payEffectScripts of EffectScript.
+      operationId: History.prototype.__get__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    post:
+      tags:
+        - History
+      summary: Creates a new instance in payEffectScripts of this model.
+      operationId: History.prototype.__create__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Deletes all payEffectScripts of this model.
+      operationId: History.prototype.__delete__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Histories/{id}/effectScript/payEffectScripts/count':
+    get:
+      tags:
+        - History
+      summary: Counts payEffectScripts of EffectScript.
+      operationId: History.prototype.__count__effectScript__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Histories/{id}/effectScript/histories':
+    get:
+      tags:
+        - History
+      summary: Queries histories of EffectScript.
+      operationId: History.prototype.__get__effectScript__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/History'
+      deprecated: false
+    post:
+      tags:
+        - History
+      summary: Creates a new instance in histories of this model.
+      operationId: History.prototype.__create__effectScript__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Deletes all histories of this model.
+      operationId: History.prototype.__delete__effectScript__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Histories/{id}/effectScript/histories/count':
+    get:
+      tags:
+        - History
+      summary: Counts histories of EffectScript.
+      operationId: History.prototype.__count__effectScript__histories
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Messages/{id}/account':
+    get:
+      tags:
+        - Message
+      summary: Fetches belongsTo relation account.
+      operationId: Message.prototype.__get__account
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  /Messages:
+    post:
+      tags:
+        - Message
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Message.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    patch:
+      tags:
+        - Message
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
+      operationId: Message.patchOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Message.replaceOrCreate__put_Messages
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    get:
+      tags:
+        - Message
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Message.find
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+      deprecated: false
+  /Messages/replaceOrCreate:
+    post:
+      tags:
+        - Message
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Message.replaceOrCreate__post_Messages_replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  /Messages/upsertWithWhere:
+    post:
+      tags:
+        - Message
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: Message.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/Messages/{id}/exists':
+    get:
+      tags:
+        - Message
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Message.exists__get_Messages_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Messages/{id}':
+    head:
+      tags:
+        - Message
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Message.exists__head_Messages_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Message
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Message.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'Message.replaceById__put_Messages_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: Message.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    patch:
+      tags:
+        - Message
+      summary: >-
+        Patch attributes for a model instance and persist it into the data
+        source.
+      operationId: Message.prototype.patchAttributes
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/Messages/{id}/replace':
+    post:
+      tags:
+        - Message
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: 'Message.replaceById__post_Messages_{id}_replace'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  /Messages/findOne:
+    get:
+      tags:
+        - Message
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Message.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string (`{"where":{"something":"value"}}`). 
+            See
+            https://loopback.io/doc/en/lb3/Querying-data.html#using-stringified-json-in-rest-queries
+            for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  /Messages/update:
+    post:
+      tags:
+        - Message
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: Message.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /Messages/count:
+    get:
+      tags:
+        - Message
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Message.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Messages/change-stream:
+    post:
+      tags:
+        - Message
+      summary: Create a change stream.
+      operationId: Message.createChangeStream__post_Messages_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - Message
+      summary: Create a change stream.
+      operationId: Message.createChangeStream__get_Messages_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+  '/Messages/{id}/account/accessTokens/{fk}':
+    get:
+      tags:
+        - Message
+      summary: Find a related item by id for accessTokens.
+      operationId: Message.prototype.__findById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Delete a related item by id for accessTokens.
+      operationId: Message.prototype.__destroyById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Update a related item by id for accessTokens.
+      operationId: Message.prototype.__updateById__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accessTokens
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+  '/Messages/{id}/account/payEffectScripts/{fk}':
+    get:
+      tags:
+        - Message
+      summary: Find a related item by id for payEffectScripts.
+      operationId: Message.prototype.__findById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Delete a related item by id for payEffectScripts.
+      operationId: Message.prototype.__destroyById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Update a related item by id for payEffectScripts.
+      operationId: Message.prototype.__updateById__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for payEffectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+  '/Messages/{id}/account/histories/{fk}':
+    get:
+      tags:
+        - Message
+      summary: Find a related item by id for histories.
+      operationId: Message.prototype.__findById__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Delete a related item by id for histories.
+      operationId: Message.prototype.__destroyById__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Update a related item by id for histories.
+      operationId: Message.prototype.__updateById__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for histories
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+  '/Messages/{id}/account/messages/{fk}':
+    get:
+      tags:
+        - Message
+      summary: Find a related item by id for messages.
+      operationId: Message.prototype.__findById__account__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Delete a related item by id for messages.
+      operationId: Message.prototype.__destroyById__account__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Message
+      summary: Update a related item by id for messages.
+      operationId: Message.prototype.__updateById__account__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for messages
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+  '/Messages/{id}/account/accessTokens':
+    get:
+      tags:
+        - Message
+      summary: Queries accessTokens of Account.
+      operationId: Message.prototype.__get__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AccessToken'
+      deprecated: false
+    post:
+      tags:
+        - Message
+      summary: Creates a new instance in accessTokens of this model.
+      operationId: Message.prototype.__create__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/AccessToken'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/AccessToken'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Deletes all accessTokens of this model.
+      operationId: Message.prototype.__delete__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Messages/{id}/account/accessTokens/count':
+    get:
+      tags:
+        - Message
+      summary: Counts accessTokens of Account.
+      operationId: Message.prototype.__count__account__accessTokens
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Messages/{id}/account/payEffectScripts':
+    get:
+      tags:
+        - Message
+      summary: Queries payEffectScripts of Account.
+      operationId: Message.prototype.__get__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    post:
+      tags:
+        - Message
+      summary: Creates a new instance in payEffectScripts of this model.
+      operationId: Message.prototype.__create__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Deletes all payEffectScripts of this model.
+      operationId: Message.prototype.__delete__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Messages/{id}/account/payEffectScripts/count':
+    get:
+      tags:
+        - Message
+      summary: Counts payEffectScripts of Account.
+      operationId: Message.prototype.__count__account__payEffectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Messages/{id}/account/histories':
+    get:
+      tags:
+        - Message
+      summary: Queries histories of Account.
+      operationId: Message.prototype.__get__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/History'
+      deprecated: false
+    post:
+      tags:
+        - Message
+      summary: Creates a new instance in histories of this model.
+      operationId: Message.prototype.__create__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/History'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/History'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Deletes all histories of this model.
+      operationId: Message.prototype.__delete__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Messages/{id}/account/histories/count':
+    get:
+      tags:
+        - Message
+      summary: Counts histories of Account.
+      operationId: Message.prototype.__count__account__histories
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Messages/{id}/account/messages':
+    get:
+      tags:
+        - Message
+      summary: Queries messages of Account.
+      operationId: Message.prototype.__get__account__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+      deprecated: false
+    post:
+      tags:
+        - Message
+      summary: Creates a new instance in messages of this model.
+      operationId: Message.prototype.__create__account__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Message'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Deletes all messages of this model.
+      operationId: Message.prototype.__delete__account__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Messages/{id}/account/messages/count':
+    get:
+      tags:
+        - Message
+      summary: Counts messages of Account.
+      operationId: Message.prototype.__count__account__messages
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+tags:
+  - name: User
+  - name: Account
+  - name: EffectScript
+  - name: PayEffectScript
+  - name: History
+  - name: Message
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
+  - application/xml
+  - text/xml
+produces:
+  - application/json
+  - application/xml
+  - text/xml
+  - application/javascript
+  - text/javascript
+definitions:
+  x-any:
+    properties: {}
+  AccessToken:
+    properties:
+      id:
+        type: string
+      ttl:
+        default: 1209600
+        description: time to live in seconds (2 weeks by default)
+        type: number
+        format: double
+      scopes:
+        description: Array of scopes granted to this access token.
+        type: array
+        items:
+          type: string
+      created:
+        type: string
+        format: date-time
+      userId:
+        type: number
+        format: double
+    required:
+      - id
+    additionalProperties: false
+  User:
+    properties:
+      realm:
+        type: string
+      username:
+        type: string
+      email:
+        type: string
+      emailVerified:
+        type: boolean
+      id:
+        type: number
+        format: double
+    required:
+      - email
+    additionalProperties: false
+  PayEffectScript:
+    properties:
+      id:
+        type: number
+        format: double
+      accountId:
+        type: number
+        format: double
+      effectScriptId:
+        type: number
+        format: double
+    additionalProperties: false
+  History:
+    properties:
+      toPhoneNumber:
+        type: number
+        format: double
+      id:
+        type: number
+        format: double
+      accountId:
+        type: number
+        format: double
+      effectScriptId:
+        type: number
+        format: double
+      scriptId:
+        type: number
+        format: double
+    required:
+      - toPhoneNumber
+    additionalProperties: false
+  Message:
+    properties:
+      title:
+        type: string
+      content:
+        type: string
+      id:
+        type: number
+        format: double
+      fromUserId:
+        type: number
+        format: double
+    required:
+      - title
+      - content
+    additionalProperties: false
+  Account:
+    properties:
+      accountName:
+        type: string
+      realm:
+        type: string
+      username:
+        type: string
+      email:
+        type: string
+      emailVerified:
+        type: boolean
+      id:
+        type: number
+        format: double
+    required:
+      - email
+    additionalProperties: false
+  EffectScript:
+    properties:
+      type:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+        format: double
+      description:
+        type: string
+      audio:
+        type: string
+      scriptUrl:
+        type: string
+      effectUrl:
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - name
+      - price
+      - description
+      - audio
+      - scriptUrl
+      - effectUrl
+    additionalProperties: false
