@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 import { Account } from '../../models/Account';
 import { SocketConnection } from '../../sockets/socket.connections';
 import { PayEffectScript } from '../../models/PayEffectScript';
+import { EffectScript } from '../../models/EffectScript';
 import { History } from '../../models/History';
 import { Message } from '../../models/Message';
 
@@ -126,11 +127,11 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for payEffectScripts.
+   * Find a related item by id for effectScripts.
    *
    * @param {any} id Account id
    *
-   * @param {any} fk Foreign key for payEffectScripts
+   * @param {any} fk Foreign key for effectScripts
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -141,10 +142,10 @@ export class AccountApi extends BaseLoopBackApi {
    * This usually means the response is a `Account` object.)
    * </em>
    */
-  public findByIdPayEffectScripts(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public findByIdEffectScripts(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts/:fk";
+    "/Accounts/:id/effectScripts/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -156,11 +157,11 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for payEffectScripts.
+   * Delete a related item by id for effectScripts.
    *
    * @param {any} id Account id
    *
-   * @param {any} fk Foreign key for payEffectScripts
+   * @param {any} fk Foreign key for effectScripts
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -168,10 +169,10 @@ export class AccountApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public destroyByIdPayEffectScripts(id: any, fk: any, customHeaders?: Function): Observable<any> {
+  public destroyByIdEffectScripts(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts/:fk";
+    "/Accounts/:id/effectScripts/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -183,11 +184,11 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for payEffectScripts.
+   * Update a related item by id for effectScripts.
    *
    * @param {any} id Account id
    *
-   * @param {any} fk Foreign key for payEffectScripts
+   * @param {any} fk Foreign key for effectScripts
    *
    * @param {object} data Request data.
    *
@@ -202,10 +203,10 @@ export class AccountApi extends BaseLoopBackApi {
    * This usually means the response is a `Account` object.)
    * </em>
    */
-  public updateByIdPayEffectScripts(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public updateByIdEffectScripts(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts/:fk";
+    "/Accounts/:id/effectScripts/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -213,6 +214,99 @@ export class AccountApi extends BaseLoopBackApi {
     let _postBody: any = {
       data: data
     };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Add a related item by id for effectScripts.
+   *
+   * @param {any} id Account id
+   *
+   * @param {any} fk Foreign key for effectScripts
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Account` object.)
+   * </em>
+   */
+  public linkEffectScripts(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Accounts/:id/effectScripts/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {
+      data: data
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Remove the effectScripts relation to an item by id.
+   *
+   * @param {any} id Account id
+   *
+   * @param {any} fk Foreign key for effectScripts
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public unlinkEffectScripts(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "DELETE";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Accounts/:id/effectScripts/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * Check the existence of effectScripts relation to an item by id.
+   *
+   * @param {any} id Account id
+   *
+   * @param {any} fk Foreign key for effectScripts
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Account` object.)
+   * </em>
+   */
+  public existsEffectScripts(id: any, fk: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "HEAD";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Accounts/:id/effectScripts/rel/:fk";
+    let _routeParams: any = {
+      id: id,
+      fk: fk
+    };
+    let _postBody: any = {};
     let _urlParams: any = {};
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
@@ -521,7 +615,7 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries payEffectScripts of Account.
+   * Queries effectScripts of Account.
    *
    * @param {any} id Account id
    *
@@ -536,10 +630,10 @@ export class AccountApi extends BaseLoopBackApi {
    * This usually means the response is a `Account` object.)
    * </em>
    */
-  public getPayEffectScripts(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
+  public getEffectScripts(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts";
+    "/Accounts/:id/effectScripts";
     let _routeParams: any = {
       id: id
     };
@@ -551,7 +645,7 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in payEffectScripts of this model.
+   * Creates a new instance in effectScripts of this model.
    *
    * @param {any} id Account id
    *
@@ -568,10 +662,10 @@ export class AccountApi extends BaseLoopBackApi {
    * This usually means the response is a `Account` object.)
    * </em>
    */
-  public createPayEffectScripts(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
+  public createEffectScripts(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts";
+    "/Accounts/:id/effectScripts";
     let _routeParams: any = {
       id: id
     };
@@ -584,7 +678,7 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all payEffectScripts of this model.
+   * Deletes all effectScripts of this model.
    *
    * @param {any} id Account id
    *
@@ -594,10 +688,10 @@ export class AccountApi extends BaseLoopBackApi {
    *
    * This method returns no data.
    */
-  public deletePayEffectScripts(id: any, customHeaders?: Function): Observable<any> {
+  public deleteEffectScripts(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts";
+    "/Accounts/:id/effectScripts";
     let _routeParams: any = {
       id: id
     };
@@ -608,7 +702,7 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts payEffectScripts of Account.
+   * Counts effectScripts of Account.
    *
    * @param {any} id Account id
    *
@@ -622,10 +716,10 @@ export class AccountApi extends BaseLoopBackApi {
    *
    *  - `count` – `{number}` - 
    */
-  public countPayEffectScripts(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
+  public countEffectScripts(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts/count";
+    "/Accounts/:id/effectScripts/count";
     let _routeParams: any = {
       id: id
     };
@@ -1153,72 +1247,6 @@ export class AccountApi extends BaseLoopBackApi {
    *
    * @param {any} id Account id
    *
-   * @param {any} nk Foreign key for payEffectScripts.
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Account` object.)
-   * </em>
-   */
-  public getPayEffectScriptsAccount(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts/:nk/account";
-    let _routeParams: any = {
-      id: id,
-      nk: nk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation effectScript.
-   *
-   * @param {any} id Account id
-   *
-   * @param {any} nk Foreign key for payEffectScripts.
-   *
-   * @param {boolean} refresh 
-   *
-   * @returns {object} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `Account` object.)
-   * </em>
-   */
-  public getPayEffectScriptsEffectScript(id: any, nk: any, refresh: any = {}, customHeaders?: Function): Observable<any> {
-    let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts/:nk/effectScript";
-    let _routeParams: any = {
-      id: id,
-      nk: nk
-    };
-    let _postBody: any = {};
-    let _urlParams: any = {};
-    if (typeof refresh !== 'undefined' && refresh !== null) _urlParams.refresh = refresh;
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-   * Fetches belongsTo relation account.
-   *
-   * @param {any} id Account id
-   *
    * @param {any} nk Foreign key for histories.
    *
    * @param {boolean} refresh 
@@ -1347,7 +1375,7 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in payEffectScripts of this model.
+   * Creates a new instance in effectScripts of this model.
    *
    * @param {any} id Account id
    *
@@ -1364,10 +1392,10 @@ export class AccountApi extends BaseLoopBackApi {
    * This usually means the response is a `Account` object.)
    * </em>
    */
-  public createManyPayEffectScripts(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
+  public createManyEffectScripts(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/Accounts/:id/payEffectScripts";
+    "/Accounts/:id/effectScripts";
     let _routeParams: any = {
       id: id
     };

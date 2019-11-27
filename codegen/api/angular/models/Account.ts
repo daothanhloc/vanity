@@ -1,6 +1,6 @@
 /* tslint:disable */
 import {
-  PayEffectScript,
+  EffectScript,
   History,
   Message
 } from '../index';
@@ -15,7 +15,7 @@ export interface AccountInterface {
   "id"?: number;
   "password"?: string;
   accessTokens?: any[];
-  payEffectScripts?: PayEffectScript[];
+  effectScripts?: EffectScript[];
   histories?: History[];
   messages?: Message[];
 }
@@ -29,7 +29,7 @@ export class Account implements AccountInterface {
   "id": number;
   "password": string;
   accessTokens: any[];
-  payEffectScripts: PayEffectScript[];
+  effectScripts: EffectScript[];
   histories: History[];
   messages: Message[];
   constructor(data?: AccountInterface) {
@@ -103,12 +103,14 @@ export class Account implements AccountInterface {
                   keyFrom: 'id',
           keyTo: 'userId'
         },
-        payEffectScripts: {
-          name: 'payEffectScripts',
-          type: 'PayEffectScript[]',
-          model: 'PayEffectScript',
+        effectScripts: {
+          name: 'effectScripts',
+          type: 'EffectScript[]',
+          model: 'EffectScript',
           relationType: 'hasMany',
-                  keyFrom: 'id',
+          modelThrough: 'PayEffectScript',
+          keyThrough: 'effectScriptId',
+          keyFrom: 'id',
           keyTo: 'accountId'
         },
         histories: {

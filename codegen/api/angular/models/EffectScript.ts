@@ -1,6 +1,6 @@
 /* tslint:disable */
 import {
-  PayEffectScript,
+  Account,
   History
 } from '../index';
 
@@ -14,7 +14,7 @@ export interface EffectScriptInterface {
   "scriptUrl": string;
   "effectUrl": string;
   "id"?: number;
-  payEffectScripts?: PayEffectScript[];
+  accounts?: Account[];
   histories?: History[];
 }
 
@@ -27,7 +27,7 @@ export class EffectScript implements EffectScriptInterface {
   "scriptUrl": string;
   "effectUrl": string;
   "id": number;
-  payEffectScripts: PayEffectScript[];
+  accounts: Account[];
   histories: History[];
   constructor(data?: EffectScriptInterface) {
     Object.assign(this, data);
@@ -96,12 +96,14 @@ export class EffectScript implements EffectScriptInterface {
         },
       },
       relations: {
-        payEffectScripts: {
-          name: 'payEffectScripts',
-          type: 'PayEffectScript[]',
-          model: 'PayEffectScript',
+        accounts: {
+          name: 'accounts',
+          type: 'Account[]',
+          model: 'Account',
           relationType: 'hasMany',
-                  keyFrom: 'id',
+          modelThrough: 'PayEffectScript',
+          keyThrough: 'accountId',
+          keyFrom: 'id',
           keyTo: 'effectScriptId'
         },
         histories: {

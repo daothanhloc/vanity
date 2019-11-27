@@ -808,12 +808,12 @@ paths:
           schema:
             $ref: '#/definitions/AccessToken'
       deprecated: false
-  '/Accounts/{id}/payEffectScripts/{fk}':
+  '/Accounts/{id}/effectScripts/{fk}':
     get:
       tags:
         - Account
-      summary: Find a related item by id for payEffectScripts.
-      operationId: Account.prototype.__findById__payEffectScripts
+      summary: Find a related item by id for effectScripts.
+      operationId: Account.prototype.__findById__effectScripts
       parameters:
         - name: id
           in: path
@@ -823,7 +823,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -831,13 +831,13 @@ paths:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       deprecated: false
     delete:
       tags:
         - Account
-      summary: Delete a related item by id for payEffectScripts.
-      operationId: Account.prototype.__destroyById__payEffectScripts
+      summary: Delete a related item by id for effectScripts.
+      operationId: Account.prototype.__destroyById__effectScripts
       parameters:
         - name: id
           in: path
@@ -847,7 +847,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -858,8 +858,8 @@ paths:
     put:
       tags:
         - Account
-      summary: Update a related item by id for payEffectScripts.
-      operationId: Account.prototype.__updateById__payEffectScripts
+      summary: Update a related item by id for effectScripts.
+      operationId: Account.prototype.__updateById__effectScripts
       parameters:
         - name: id
           in: path
@@ -869,7 +869,37 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/Accounts/{id}/effectScripts/rel/{fk}':
+    put:
+      tags:
+        - Account
+      summary: Add a related item by id for effectScripts.
+      operationId: Account.prototype.__link__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -883,6 +913,52 @@ paths:
           description: Request was successful
           schema:
             $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - Account
+      summary: Remove the effectScripts relation to an item by id.
+      operationId: Account.prototype.__unlink__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    head:
+      tags:
+        - Account
+      summary: Check the existence of effectScripts relation to an item by id.
+      operationId: Account.prototype.__exists__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Account id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: boolean
       deprecated: false
   '/Accounts/{id}/histories/{fk}':
     get:
@@ -1130,12 +1206,12 @@ paths:
                 type: number
                 format: double
       deprecated: false
-  '/Accounts/{id}/payEffectScripts':
+  '/Accounts/{id}/effectScripts':
     get:
       tags:
         - Account
-      summary: Queries payEffectScripts of Account.
-      operationId: Account.prototype.__get__payEffectScripts
+      summary: Queries effectScripts of Account.
+      operationId: Account.prototype.__get__effectScripts
       parameters:
         - name: id
           in: path
@@ -1154,13 +1230,13 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/PayEffectScript'
+              $ref: '#/definitions/EffectScript'
       deprecated: false
     post:
       tags:
         - Account
-      summary: Creates a new instance in payEffectScripts of this model.
-      operationId: Account.prototype.__create__payEffectScripts
+      summary: Creates a new instance in effectScripts of this model.
+      operationId: Account.prototype.__create__effectScripts
       parameters:
         - name: id
           in: path
@@ -1172,18 +1248,18 @@ paths:
           in: body
           required: false
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       responses:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       deprecated: false
     delete:
       tags:
         - Account
-      summary: Deletes all payEffectScripts of this model.
-      operationId: Account.prototype.__delete__payEffectScripts
+      summary: Deletes all effectScripts of this model.
+      operationId: Account.prototype.__delete__effectScripts
       parameters:
         - name: id
           in: path
@@ -1195,12 +1271,12 @@ paths:
         '204':
           description: Request was successful
       deprecated: false
-  '/Accounts/{id}/payEffectScripts/count':
+  '/Accounts/{id}/effectScripts/count':
     get:
       tags:
         - Account
-      summary: Counts payEffectScripts of Account.
-      operationId: Account.prototype.__count__payEffectScripts
+      summary: Counts effectScripts of Account.
+      operationId: Account.prototype.__count__effectScripts
       parameters:
         - name: id
           in: path
@@ -1969,64 +2045,6 @@ paths:
         '204':
           description: Request was successful
       deprecated: false
-  '/Accounts/{id}/payEffectScripts/{nk}/account':
-    get:
-      tags:
-        - Account
-      summary: Fetches belongsTo relation account.
-      operationId: Account.prototype.__get__payEffectScripts__account
-      parameters:
-        - name: id
-          in: path
-          description: Account id
-          required: true
-          type: string
-          format: JSON
-        - name: nk
-          in: path
-          description: Foreign key for payEffectScripts.
-          required: true
-          type: string
-          format: JSON
-        - name: refresh
-          in: query
-          required: false
-          type: boolean
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/Account'
-      deprecated: false
-  '/Accounts/{id}/payEffectScripts/{nk}/effectScript':
-    get:
-      tags:
-        - Account
-      summary: Fetches belongsTo relation effectScript.
-      operationId: Account.prototype.__get__payEffectScripts__effectScript
-      parameters:
-        - name: id
-          in: path
-          description: Account id
-          required: true
-          type: string
-          format: JSON
-        - name: nk
-          in: path
-          description: Foreign key for payEffectScripts.
-          required: true
-          type: string
-          format: JSON
-        - name: refresh
-          in: query
-          required: false
-          type: boolean
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/EffectScript'
-      deprecated: false
   '/Accounts/{id}/histories/{nk}/account':
     get:
       tags:
@@ -2114,12 +2132,12 @@ paths:
           schema:
             $ref: '#/definitions/Account'
       deprecated: false
-  '/EffectScripts/{id}/payEffectScripts/{fk}':
+  '/EffectScripts/{id}/accounts/{fk}':
     get:
       tags:
         - EffectScript
-      summary: Find a related item by id for payEffectScripts.
-      operationId: EffectScript.prototype.__findById__payEffectScripts
+      summary: Find a related item by id for accounts.
+      operationId: EffectScript.prototype.__findById__accounts
       parameters:
         - name: id
           in: path
@@ -2129,7 +2147,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for accounts
           required: true
           type: string
           format: JSON
@@ -2137,13 +2155,13 @@ paths:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/Account'
       deprecated: false
     delete:
       tags:
         - EffectScript
-      summary: Delete a related item by id for payEffectScripts.
-      operationId: EffectScript.prototype.__destroyById__payEffectScripts
+      summary: Delete a related item by id for accounts.
+      operationId: EffectScript.prototype.__destroyById__accounts
       parameters:
         - name: id
           in: path
@@ -2153,7 +2171,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for accounts
           required: true
           type: string
           format: JSON
@@ -2164,8 +2182,8 @@ paths:
     put:
       tags:
         - EffectScript
-      summary: Update a related item by id for payEffectScripts.
-      operationId: EffectScript.prototype.__updateById__payEffectScripts
+      summary: Update a related item by id for accounts.
+      operationId: EffectScript.prototype.__updateById__accounts
       parameters:
         - name: id
           in: path
@@ -2175,7 +2193,37 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for accounts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/EffectScripts/{id}/accounts/rel/{fk}':
+    put:
+      tags:
+        - EffectScript
+      summary: Add a related item by id for accounts.
+      operationId: EffectScript.prototype.__link__accounts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accounts
           required: true
           type: string
           format: JSON
@@ -2189,6 +2237,52 @@ paths:
           description: Request was successful
           schema:
             $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - EffectScript
+      summary: Remove the accounts relation to an item by id.
+      operationId: EffectScript.prototype.__unlink__accounts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accounts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    head:
+      tags:
+        - EffectScript
+      summary: Check the existence of accounts relation to an item by id.
+      operationId: EffectScript.prototype.__exists__accounts
+      parameters:
+        - name: id
+          in: path
+          description: EffectScript id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accounts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: boolean
       deprecated: false
   '/EffectScripts/{id}/histories/{fk}':
     get:
@@ -2266,12 +2360,12 @@ paths:
           schema:
             $ref: '#/definitions/History'
       deprecated: false
-  '/EffectScripts/{id}/payEffectScripts':
+  '/EffectScripts/{id}/accounts':
     get:
       tags:
         - EffectScript
-      summary: Queries payEffectScripts of EffectScript.
-      operationId: EffectScript.prototype.__get__payEffectScripts
+      summary: Queries accounts of EffectScript.
+      operationId: EffectScript.prototype.__get__accounts
       parameters:
         - name: id
           in: path
@@ -2290,13 +2384,13 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/PayEffectScript'
+              $ref: '#/definitions/Account'
       deprecated: false
     post:
       tags:
         - EffectScript
-      summary: Creates a new instance in payEffectScripts of this model.
-      operationId: EffectScript.prototype.__create__payEffectScripts
+      summary: Creates a new instance in accounts of this model.
+      operationId: EffectScript.prototype.__create__accounts
       parameters:
         - name: id
           in: path
@@ -2308,18 +2402,18 @@ paths:
           in: body
           required: false
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/Account'
       responses:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/Account'
       deprecated: false
     delete:
       tags:
         - EffectScript
-      summary: Deletes all payEffectScripts of this model.
-      operationId: EffectScript.prototype.__delete__payEffectScripts
+      summary: Deletes all accounts of this model.
+      operationId: EffectScript.prototype.__delete__accounts
       parameters:
         - name: id
           in: path
@@ -2331,12 +2425,12 @@ paths:
         '204':
           description: Request was successful
       deprecated: false
-  '/EffectScripts/{id}/payEffectScripts/count':
+  '/EffectScripts/{id}/accounts/count':
     get:
       tags:
         - EffectScript
-      summary: Counts payEffectScripts of EffectScript.
-      operationId: EffectScript.prototype.__count__payEffectScripts
+      summary: Counts accounts of EffectScript.
+      operationId: EffectScript.prototype.__count__accounts
       parameters:
         - name: id
           in: path
@@ -2875,64 +2969,6 @@ paths:
           schema:
             type: file
       deprecated: false
-  '/EffectScripts/{id}/payEffectScripts/{nk}/account':
-    get:
-      tags:
-        - EffectScript
-      summary: Fetches belongsTo relation account.
-      operationId: EffectScript.prototype.__get__payEffectScripts__account
-      parameters:
-        - name: id
-          in: path
-          description: EffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: nk
-          in: path
-          description: Foreign key for payEffectScripts.
-          required: true
-          type: string
-          format: JSON
-        - name: refresh
-          in: query
-          required: false
-          type: boolean
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/Account'
-      deprecated: false
-  '/EffectScripts/{id}/payEffectScripts/{nk}/effectScript':
-    get:
-      tags:
-        - EffectScript
-      summary: Fetches belongsTo relation effectScript.
-      operationId: EffectScript.prototype.__get__payEffectScripts__effectScript
-      parameters:
-        - name: id
-          in: path
-          description: EffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: nk
-          in: path
-          description: Foreign key for payEffectScripts.
-          required: true
-          type: string
-          format: JSON
-        - name: refresh
-          in: query
-          required: false
-          type: boolean
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/EffectScript'
-      deprecated: false
   '/EffectScripts/{id}/histories/{nk}/account':
     get:
       tags:
@@ -3457,516 +3493,6 @@ paths:
           description: Request was successful
           schema:
             type: file
-      deprecated: false
-  '/PayEffectScripts/{id}/account/accessTokens/{fk}':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Find a related item by id for accessTokens.
-      operationId: PayEffectScript.prototype.__findById__account__accessTokens
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for accessTokens
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/AccessToken'
-      deprecated: false
-    delete:
-      tags:
-        - PayEffectScript
-      summary: Delete a related item by id for accessTokens.
-      operationId: PayEffectScript.prototype.__destroyById__account__accessTokens
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for accessTokens
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '204':
-          description: Request was successful
-      deprecated: false
-    put:
-      tags:
-        - PayEffectScript
-      summary: Update a related item by id for accessTokens.
-      operationId: PayEffectScript.prototype.__updateById__account__accessTokens
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for accessTokens
-          required: true
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/AccessToken'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/AccessToken'
-      deprecated: false
-  '/PayEffectScripts/{id}/account/payEffectScripts/{fk}':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Find a related item by id for payEffectScripts.
-      operationId: PayEffectScript.prototype.__findById__account__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for payEffectScripts
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      deprecated: false
-    delete:
-      tags:
-        - PayEffectScript
-      summary: Delete a related item by id for payEffectScripts.
-      operationId: PayEffectScript.prototype.__destroyById__account__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for payEffectScripts
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '204':
-          description: Request was successful
-      deprecated: false
-    put:
-      tags:
-        - PayEffectScript
-      summary: Update a related item by id for payEffectScripts.
-      operationId: PayEffectScript.prototype.__updateById__account__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for payEffectScripts
-          required: true
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      deprecated: false
-  '/PayEffectScripts/{id}/account/accessTokens':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Queries accessTokens of Account.
-      operationId: PayEffectScript.prototype.__get__account__accessTokens
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: filter
-          in: query
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/AccessToken'
-      deprecated: false
-    post:
-      tags:
-        - PayEffectScript
-      summary: Creates a new instance in accessTokens of this model.
-      operationId: PayEffectScript.prototype.__create__account__accessTokens
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/AccessToken'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/AccessToken'
-      deprecated: false
-    delete:
-      tags:
-        - PayEffectScript
-      summary: Deletes all accessTokens of this model.
-      operationId: PayEffectScript.prototype.__delete__account__accessTokens
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '204':
-          description: Request was successful
-      deprecated: false
-  '/PayEffectScripts/{id}/account/accessTokens/count':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Counts accessTokens of Account.
-      operationId: PayEffectScript.prototype.__count__account__accessTokens
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: where
-          in: query
-          description: Criteria to match model instances
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              count:
-                type: number
-                format: double
-      deprecated: false
-  '/PayEffectScripts/{id}/account/payEffectScripts':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Queries payEffectScripts of Account.
-      operationId: PayEffectScript.prototype.__get__account__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: filter
-          in: query
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/PayEffectScript'
-      deprecated: false
-    post:
-      tags:
-        - PayEffectScript
-      summary: Creates a new instance in payEffectScripts of this model.
-      operationId: PayEffectScript.prototype.__create__account__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      deprecated: false
-    delete:
-      tags:
-        - PayEffectScript
-      summary: Deletes all payEffectScripts of this model.
-      operationId: PayEffectScript.prototype.__delete__account__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '204':
-          description: Request was successful
-      deprecated: false
-  '/PayEffectScripts/{id}/account/payEffectScripts/count':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Counts payEffectScripts of Account.
-      operationId: PayEffectScript.prototype.__count__account__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: where
-          in: query
-          description: Criteria to match model instances
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              count:
-                type: number
-                format: double
-      deprecated: false
-  '/PayEffectScripts/{id}/effectScript/payEffectScripts/{fk}':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Find a related item by id for payEffectScripts.
-      operationId: PayEffectScript.prototype.__findById__effectScript__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for payEffectScripts
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      deprecated: false
-    delete:
-      tags:
-        - PayEffectScript
-      summary: Delete a related item by id for payEffectScripts.
-      operationId: PayEffectScript.prototype.__destroyById__effectScript__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for payEffectScripts
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '204':
-          description: Request was successful
-      deprecated: false
-    put:
-      tags:
-        - PayEffectScript
-      summary: Update a related item by id for payEffectScripts.
-      operationId: PayEffectScript.prototype.__updateById__effectScript__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: fk
-          in: path
-          description: Foreign key for payEffectScripts
-          required: true
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      deprecated: false
-  '/PayEffectScripts/{id}/effectScript/payEffectScripts':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Queries payEffectScripts of EffectScript.
-      operationId: PayEffectScript.prototype.__get__effectScript__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: filter
-          in: query
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/PayEffectScript'
-      deprecated: false
-    post:
-      tags:
-        - PayEffectScript
-      summary: Creates a new instance in payEffectScripts of this model.
-      operationId: PayEffectScript.prototype.__create__effectScript__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/PayEffectScript'
-      deprecated: false
-    delete:
-      tags:
-        - PayEffectScript
-      summary: Deletes all payEffectScripts of this model.
-      operationId: PayEffectScript.prototype.__delete__effectScript__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '204':
-          description: Request was successful
-      deprecated: false
-  '/PayEffectScripts/{id}/effectScript/payEffectScripts/count':
-    get:
-      tags:
-        - PayEffectScript
-      summary: Counts payEffectScripts of EffectScript.
-      operationId: PayEffectScript.prototype.__count__effectScript__payEffectScripts
-      parameters:
-        - name: id
-          in: path
-          description: PayEffectScript id
-          required: true
-          type: string
-          format: JSON
-        - name: where
-          in: query
-          description: Criteria to match model instances
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              count:
-                type: number
-                format: double
       deprecated: false
   '/Histories/{id}/account':
     get:
@@ -4511,12 +4037,12 @@ paths:
           schema:
             $ref: '#/definitions/AccessToken'
       deprecated: false
-  '/Histories/{id}/account/payEffectScripts/{fk}':
+  '/Histories/{id}/account/effectScripts/{fk}':
     get:
       tags:
         - History
-      summary: Find a related item by id for payEffectScripts.
-      operationId: History.prototype.__findById__account__payEffectScripts
+      summary: Find a related item by id for effectScripts.
+      operationId: History.prototype.__findById__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -4526,7 +4052,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -4534,13 +4060,13 @@ paths:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       deprecated: false
     delete:
       tags:
         - History
-      summary: Delete a related item by id for payEffectScripts.
-      operationId: History.prototype.__destroyById__account__payEffectScripts
+      summary: Delete a related item by id for effectScripts.
+      operationId: History.prototype.__destroyById__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -4550,7 +4076,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -4561,8 +4087,8 @@ paths:
     put:
       tags:
         - History
-      summary: Update a related item by id for payEffectScripts.
-      operationId: History.prototype.__updateById__account__payEffectScripts
+      summary: Update a related item by id for effectScripts.
+      operationId: History.prototype.__updateById__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -4572,7 +4098,37 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/Histories/{id}/account/effectScripts/rel/{fk}':
+    put:
+      tags:
+        - History
+      summary: Add a related item by id for effectScripts.
+      operationId: History.prototype.__link__account__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -4586,6 +4142,52 @@ paths:
           description: Request was successful
           schema:
             $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Remove the effectScripts relation to an item by id.
+      operationId: History.prototype.__unlink__account__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    head:
+      tags:
+        - History
+      summary: Check the existence of effectScripts relation to an item by id.
+      operationId: History.prototype.__exists__account__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: boolean
       deprecated: false
   '/Histories/{id}/account/histories/{fk}':
     get:
@@ -4757,12 +4359,12 @@ paths:
                 type: number
                 format: double
       deprecated: false
-  '/Histories/{id}/account/payEffectScripts':
+  '/Histories/{id}/account/effectScripts':
     get:
       tags:
         - History
-      summary: Queries payEffectScripts of Account.
-      operationId: History.prototype.__get__account__payEffectScripts
+      summary: Queries effectScripts of Account.
+      operationId: History.prototype.__get__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -4781,13 +4383,13 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/PayEffectScript'
+              $ref: '#/definitions/EffectScript'
       deprecated: false
     post:
       tags:
         - History
-      summary: Creates a new instance in payEffectScripts of this model.
-      operationId: History.prototype.__create__account__payEffectScripts
+      summary: Creates a new instance in effectScripts of this model.
+      operationId: History.prototype.__create__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -4799,18 +4401,18 @@ paths:
           in: body
           required: false
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       responses:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       deprecated: false
     delete:
       tags:
         - History
-      summary: Deletes all payEffectScripts of this model.
-      operationId: History.prototype.__delete__account__payEffectScripts
+      summary: Deletes all effectScripts of this model.
+      operationId: History.prototype.__delete__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -4822,12 +4424,12 @@ paths:
         '204':
           description: Request was successful
       deprecated: false
-  '/Histories/{id}/account/payEffectScripts/count':
+  '/Histories/{id}/account/effectScripts/count':
     get:
       tags:
         - History
-      summary: Counts payEffectScripts of Account.
-      operationId: History.prototype.__count__account__payEffectScripts
+      summary: Counts effectScripts of Account.
+      operationId: History.prototype.__count__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -4945,12 +4547,12 @@ paths:
                 type: number
                 format: double
       deprecated: false
-  '/Histories/{id}/effectScript/payEffectScripts/{fk}':
+  '/Histories/{id}/effectScript/accounts/{fk}':
     get:
       tags:
         - History
-      summary: Find a related item by id for payEffectScripts.
-      operationId: History.prototype.__findById__effectScript__payEffectScripts
+      summary: Find a related item by id for accounts.
+      operationId: History.prototype.__findById__effectScript__accounts
       parameters:
         - name: id
           in: path
@@ -4960,7 +4562,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for accounts
           required: true
           type: string
           format: JSON
@@ -4968,13 +4570,13 @@ paths:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/Account'
       deprecated: false
     delete:
       tags:
         - History
-      summary: Delete a related item by id for payEffectScripts.
-      operationId: History.prototype.__destroyById__effectScript__payEffectScripts
+      summary: Delete a related item by id for accounts.
+      operationId: History.prototype.__destroyById__effectScript__accounts
       parameters:
         - name: id
           in: path
@@ -4984,7 +4586,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for accounts
           required: true
           type: string
           format: JSON
@@ -4995,8 +4597,8 @@ paths:
     put:
       tags:
         - History
-      summary: Update a related item by id for payEffectScripts.
-      operationId: History.prototype.__updateById__effectScript__payEffectScripts
+      summary: Update a related item by id for accounts.
+      operationId: History.prototype.__updateById__effectScript__accounts
       parameters:
         - name: id
           in: path
@@ -5006,7 +4608,37 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for accounts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Account'
+      deprecated: false
+  '/Histories/{id}/effectScript/accounts/rel/{fk}':
+    put:
+      tags:
+        - History
+      summary: Add a related item by id for accounts.
+      operationId: History.prototype.__link__effectScript__accounts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accounts
           required: true
           type: string
           format: JSON
@@ -5020,6 +4652,52 @@ paths:
           description: Request was successful
           schema:
             $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - History
+      summary: Remove the accounts relation to an item by id.
+      operationId: History.prototype.__unlink__effectScript__accounts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accounts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    head:
+      tags:
+        - History
+      summary: Check the existence of accounts relation to an item by id.
+      operationId: History.prototype.__exists__effectScript__accounts
+      parameters:
+        - name: id
+          in: path
+          description: History id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for accounts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: boolean
       deprecated: false
   '/Histories/{id}/effectScript/histories/{fk}':
     get:
@@ -5097,12 +4775,12 @@ paths:
           schema:
             $ref: '#/definitions/History'
       deprecated: false
-  '/Histories/{id}/effectScript/payEffectScripts':
+  '/Histories/{id}/effectScript/accounts':
     get:
       tags:
         - History
-      summary: Queries payEffectScripts of EffectScript.
-      operationId: History.prototype.__get__effectScript__payEffectScripts
+      summary: Queries accounts of EffectScript.
+      operationId: History.prototype.__get__effectScript__accounts
       parameters:
         - name: id
           in: path
@@ -5121,13 +4799,13 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/PayEffectScript'
+              $ref: '#/definitions/Account'
       deprecated: false
     post:
       tags:
         - History
-      summary: Creates a new instance in payEffectScripts of this model.
-      operationId: History.prototype.__create__effectScript__payEffectScripts
+      summary: Creates a new instance in accounts of this model.
+      operationId: History.prototype.__create__effectScript__accounts
       parameters:
         - name: id
           in: path
@@ -5139,18 +4817,18 @@ paths:
           in: body
           required: false
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/Account'
       responses:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/Account'
       deprecated: false
     delete:
       tags:
         - History
-      summary: Deletes all payEffectScripts of this model.
-      operationId: History.prototype.__delete__effectScript__payEffectScripts
+      summary: Deletes all accounts of this model.
+      operationId: History.prototype.__delete__effectScript__accounts
       parameters:
         - name: id
           in: path
@@ -5162,12 +4840,12 @@ paths:
         '204':
           description: Request was successful
       deprecated: false
-  '/Histories/{id}/effectScript/payEffectScripts/count':
+  '/Histories/{id}/effectScript/accounts/count':
     get:
       tags:
         - History
-      summary: Counts payEffectScripts of EffectScript.
-      operationId: History.prototype.__count__effectScript__payEffectScripts
+      summary: Counts accounts of EffectScript.
+      operationId: History.prototype.__count__effectScript__accounts
       parameters:
         - name: id
           in: path
@@ -5805,12 +5483,12 @@ paths:
           schema:
             $ref: '#/definitions/AccessToken'
       deprecated: false
-  '/Messages/{id}/account/payEffectScripts/{fk}':
+  '/Messages/{id}/account/effectScripts/{fk}':
     get:
       tags:
         - Message
-      summary: Find a related item by id for payEffectScripts.
-      operationId: Message.prototype.__findById__account__payEffectScripts
+      summary: Find a related item by id for effectScripts.
+      operationId: Message.prototype.__findById__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -5820,7 +5498,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -5828,13 +5506,13 @@ paths:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       deprecated: false
     delete:
       tags:
         - Message
-      summary: Delete a related item by id for payEffectScripts.
-      operationId: Message.prototype.__destroyById__account__payEffectScripts
+      summary: Delete a related item by id for effectScripts.
+      operationId: Message.prototype.__destroyById__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -5844,7 +5522,7 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -5855,8 +5533,8 @@ paths:
     put:
       tags:
         - Message
-      summary: Update a related item by id for payEffectScripts.
-      operationId: Message.prototype.__updateById__account__payEffectScripts
+      summary: Update a related item by id for effectScripts.
+      operationId: Message.prototype.__updateById__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -5866,7 +5544,37 @@ paths:
           format: JSON
         - name: fk
           in: path
-          description: Foreign key for payEffectScripts
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/EffectScript'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/EffectScript'
+      deprecated: false
+  '/Messages/{id}/account/effectScripts/rel/{fk}':
+    put:
+      tags:
+        - Message
+      summary: Add a related item by id for effectScripts.
+      operationId: Message.prototype.__link__account__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
           required: true
           type: string
           format: JSON
@@ -5880,6 +5588,52 @@ paths:
           description: Request was successful
           schema:
             $ref: '#/definitions/PayEffectScript'
+      deprecated: false
+    delete:
+      tags:
+        - Message
+      summary: Remove the effectScripts relation to an item by id.
+      operationId: Message.prototype.__unlink__account__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    head:
+      tags:
+        - Message
+      summary: Check the existence of effectScripts relation to an item by id.
+      operationId: Message.prototype.__exists__account__effectScripts
+      parameters:
+        - name: id
+          in: path
+          description: Message id
+          required: true
+          type: string
+          format: JSON
+        - name: fk
+          in: path
+          description: Foreign key for effectScripts
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: boolean
       deprecated: false
   '/Messages/{id}/account/histories/{fk}':
     get:
@@ -6127,12 +5881,12 @@ paths:
                 type: number
                 format: double
       deprecated: false
-  '/Messages/{id}/account/payEffectScripts':
+  '/Messages/{id}/account/effectScripts':
     get:
       tags:
         - Message
-      summary: Queries payEffectScripts of Account.
-      operationId: Message.prototype.__get__account__payEffectScripts
+      summary: Queries effectScripts of Account.
+      operationId: Message.prototype.__get__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -6151,13 +5905,13 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/PayEffectScript'
+              $ref: '#/definitions/EffectScript'
       deprecated: false
     post:
       tags:
         - Message
-      summary: Creates a new instance in payEffectScripts of this model.
-      operationId: Message.prototype.__create__account__payEffectScripts
+      summary: Creates a new instance in effectScripts of this model.
+      operationId: Message.prototype.__create__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -6169,18 +5923,18 @@ paths:
           in: body
           required: false
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       responses:
         '200':
           description: Request was successful
           schema:
-            $ref: '#/definitions/PayEffectScript'
+            $ref: '#/definitions/EffectScript'
       deprecated: false
     delete:
       tags:
         - Message
-      summary: Deletes all payEffectScripts of this model.
-      operationId: Message.prototype.__delete__account__payEffectScripts
+      summary: Deletes all effectScripts of this model.
+      operationId: Message.prototype.__delete__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -6192,12 +5946,12 @@ paths:
         '204':
           description: Request was successful
       deprecated: false
-  '/Messages/{id}/account/payEffectScripts/count':
+  '/Messages/{id}/account/effectScripts/count':
     get:
       tags:
         - Message
-      summary: Counts payEffectScripts of Account.
-      operationId: Message.prototype.__count__account__payEffectScripts
+      summary: Counts effectScripts of Account.
+      operationId: Message.prototype.__count__account__effectScripts
       parameters:
         - name: id
           in: path
@@ -6469,6 +6223,34 @@ definitions:
     required:
       - email
     additionalProperties: false
+  EffectScript:
+    properties:
+      type:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+        format: double
+      description:
+        type: string
+      audio:
+        type: string
+      scriptUrl:
+        type: string
+      effectUrl:
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - name
+      - price
+      - description
+      - audio
+      - scriptUrl
+      - effectUrl
+    additionalProperties: false
   PayEffectScript:
     properties:
       id:
@@ -6534,32 +6316,4 @@ definitions:
         format: double
     required:
       - email
-    additionalProperties: false
-  EffectScript:
-    properties:
-      type:
-        type: string
-      name:
-        type: string
-      price:
-        type: number
-        format: double
-      description:
-        type: string
-      audio:
-        type: string
-      scriptUrl:
-        type: string
-      effectUrl:
-        type: string
-      id:
-        type: number
-        format: double
-    required:
-      - name
-      - price
-      - description
-      - audio
-      - scriptUrl
-      - effectUrl
     additionalProperties: false
