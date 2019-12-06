@@ -1243,6 +1243,37 @@ export class AccountApi extends BaseLoopBackApi {
   }
 
   /**
+   * send mail to user
+   *
+   * @param {object} data Request data.
+   *
+   *  - `userEmail` – `{string}` - email of user to send
+   *
+   *  - `content` – `{string}` - email content
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public sendMailToUser(userEmail: any, content: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "POST";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/Accounts/sendMailToUser";
+    let _routeParams: any = {};
+    let _postBody: any = {
+      data: {
+        userEmail: userEmail,
+        content: content
+      }
+    };
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
    * Fetches belongsTo relation account.
    *
    * @param {any} id Account id

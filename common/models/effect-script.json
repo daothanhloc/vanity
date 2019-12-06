@@ -13,6 +13,14 @@
       "type": "string",
       "required": true
     },
+    "color": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": true
+    },
     "price": {
       "type": "number",
       "required": true
@@ -22,10 +30,6 @@
       "required": true
     },
     "audio": {
-      "type": "string",
-      "required": true
-    },
-    "scriptUrl": {
       "type": "string",
       "required": true
     },

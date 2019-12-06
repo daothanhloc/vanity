@@ -6,6 +6,8 @@ import { EffectScript } from '../../models/EffectScript';
 import { PayEffectScript } from '../../models/PayEffectScript';
 import { History } from '../../models/History';
 import { Message } from '../../models/Message';
+import { Email } from '../../models/Email';
+import { Container } from '../../models/Container';
 
 export interface Models { [name: string]: any }
 
@@ -19,6 +21,8 @@ export class SDKModels {
     PayEffectScript: PayEffectScript,
     History: History,
     Message: Message,
+    Email: Email,
+    Container: Container,
     
   };
 

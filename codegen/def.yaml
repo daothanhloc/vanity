@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.0.0
-  title: Vanity
+  title: vanity
   description: Vanity
 basePath: /api
 paths:
@@ -2039,6 +2039,27 @@ paths:
       parameters:
         - name: newPassword
           in: formData
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Accounts/sendMailToUser:
+    post:
+      tags:
+        - Account
+      summary: send mail to user
+      operationId: Account.sendMailToUser
+      parameters:
+        - name: userEmail
+          in: formData
+          description: email of user to send
+          required: true
+          type: string
+        - name: content
+          in: formData
+          description: email content
           required: true
           type: string
       responses:
@@ -6163,6 +6184,167 @@ paths:
                 type: number
                 format: double
       deprecated: false
+  /Containers:
+    get:
+      tags:
+        - Container
+      operationId: Container.getContainers
+      parameters: []
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/x-any'
+      deprecated: false
+    post:
+      tags:
+        - Container
+      operationId: Container.createContainer
+      parameters:
+        - name: options
+          in: body
+          required: false
+          schema:
+            type: object
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+  '/Containers/{container}':
+    delete:
+      tags:
+        - Container
+      operationId: Container.destroyContainer
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              undefined:
+                type: object
+      deprecated: false
+    get:
+      tags:
+        - Container
+      operationId: Container.getContainer
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+  '/Containers/{container}/files':
+    get:
+      tags:
+        - Container
+      operationId: Container.getFiles
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/x-any'
+      deprecated: false
+  '/Containers/{container}/files/{file}':
+    get:
+      tags:
+        - Container
+      operationId: Container.getFile
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+        - name: file
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    delete:
+      tags:
+        - Container
+      operationId: Container.removeFile
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+        - name: file
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              undefined:
+                type: object
+      deprecated: false
+  '/Containers/{container}/upload':
+    post:
+      tags:
+        - Container
+      operationId: Container.upload
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+      deprecated: false
+  '/Containers/{container}/download/{file}':
+    get:
+      tags:
+        - Container
+      operationId: Container.download
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+        - name: file
+          in: path
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
 tags:
   - name: User
   - name: Account
@@ -6170,6 +6352,7 @@ tags:
   - name: PayEffectScript
   - name: History
   - name: Message
+  - name: Container
 consumes:
   - application/json
   - application/x-www-form-urlencoded
@@ -6229,14 +6412,16 @@ definitions:
         type: string
       name:
         type: string
+      color:
+        type: string
+      icon:
+        type: string
       price:
         type: number
         format: double
       description:
         type: string
       audio:
-        type: string
-      scriptUrl:
         type: string
       effectUrl:
         type: string
@@ -6245,10 +6430,11 @@ definitions:
         format: double
     required:
       - name
+      - color
+      - icon
       - price
       - description
       - audio
-      - scriptUrl
       - effectUrl
     additionalProperties: false
   PayEffectScript:

@@ -8,10 +8,11 @@ declare var Object: any;
 export interface EffectScriptInterface {
   "type"?: string;
   "name": string;
+  "color": string;
+  "icon": string;
   "price": number;
   "description": string;
   "audio": string;
-  "scriptUrl": string;
   "effectUrl": string;
   "id"?: number;
   accounts?: Account[];
@@ -21,10 +22,11 @@ export interface EffectScriptInterface {
 export class EffectScript implements EffectScriptInterface {
   "type": string;
   "name": string;
+  "color": string;
+  "icon": string;
   "price": number;
   "description": string;
   "audio": string;
-  "scriptUrl": string;
   "effectUrl": string;
   "id": number;
   accounts: Account[];
@@ -70,6 +72,14 @@ export class EffectScript implements EffectScriptInterface {
           name: 'name',
           type: 'string'
         },
+        "color": {
+          name: 'color',
+          type: 'string'
+        },
+        "icon": {
+          name: 'icon',
+          type: 'string'
+        },
         "price": {
           name: 'price',
           type: 'number'
@@ -80,10 +90,6 @@ export class EffectScript implements EffectScriptInterface {
         },
         "audio": {
           name: 'audio',
-          type: 'string'
-        },
-        "scriptUrl": {
-          name: 'scriptUrl',
           type: 'string'
         },
         "effectUrl": {

@@ -1,0 +1,17 @@
+***************
+*** 4462,4467 ****
+      properties:
+        nom:
+          type: string
+        prenom:
+          type: string
+  
+--- 4462,4469 ----
+      properties:
+        nom:
+          type: string
++       password:
++         type: string
+        prenom:
+          type: string
+  

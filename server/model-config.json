@@ -54,5 +54,12 @@
   "Message": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Email": {
+    "dataSource": "mail"
+  },
+  "Container": {
+    "dataSource": "myfile",
+    "public": true
   }
 }

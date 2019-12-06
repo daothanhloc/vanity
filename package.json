@@ -1,5 +1,5 @@
 {
-  "name": "Vanity",
+  "name": "vanity",
   "version": "1.0.0",
   "main": "server/server.js",
   "engines": {
@@ -11,14 +11,18 @@
     "posttest": "npm run lint && npm audit"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^3.10.0",
     "loopback": "^3.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
+    "loopback-component-storage": "^3.6.3",
     "loopback-connector-mysql": "^5.4.2",
     "loopback-sdk-builder": "^2.0.0-deprecated",
+    "nodemailer": "^6.3.1",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^3.0.0",
     "swagger": "^0.7.5",
@@ -26,8 +30,13 @@
   },
   "devDependencies": {
     "@mean-expert/loopback-sdk-builder": "^2.3.1",
+    "@types/lodash": "^4.14.149",
+    "@types/loopback": "^3.2.7",
     "eslint": "^3.17.1",
-    "eslint-config-loopback": "^8.0.0"
+    "eslint-config-loopback": "^8.0.0",
+    "tsc-watch": "^4.0.0",
+    "@types/core-js": "^2.5.2",
+    "@types/isomorphic-fetch": "0.0.35"
   },
   "repository": {
     "type": "",

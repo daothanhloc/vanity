@@ -1,11 +1,7 @@
-// Copyright IBM Corp. 2016. All Rights Reserved.
-// Node module: loopback-workspace
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
-
-'use strict';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 module.exports = function enableAuthentication(server) {
-  // enable authentication
-  server.enableAuth();
+    // enable authentication
+    server.enableAuth();
 };
+//# sourceMappingURL=authentication.js.map
